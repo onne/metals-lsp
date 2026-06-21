@@ -1,0 +1,41 @@
+{
+  "name": "metals-lsp",
+  "description": "Scala language server (Metals) for Claude Code code intelligence",
+  "owner": {
+    "name": "Onn Elboher",
+    "email": "onn.elboher@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "metals-lsp",
+      "description": "Scala language server (Metals) for code intelligence and refactoring",
+      "version": "1.0.0",
+      "author": {
+        "name": "Onn Elboher",
+        "email": "onn.elboher@gmail.com"
+      },
+      "source": "./",
+      "category": "development",
+      "strict": false,
+      "lspServers": {
+        "scala": {
+          "command": "metals",
+          "args": [],
+          "extensionToLanguage": {
+            ".scala": "scala",
+            ".sc": "scala",
+            ".sbt": "sbt"
+          },
+          "transport": "stdio",
+          "initializationOptions": {
+            "isExitOnShutdown": true,
+            "statusBarProvider": "log-message"
+          },
+          "settings": {},
+          "startupTimeout": 90000,
+          "maxRestarts": 3
+        }
+      }
+    }
+  ]
+}

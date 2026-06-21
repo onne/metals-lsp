@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "metals-lsp",
+  "version": "1.0.0",
+  "description": "Scala language server (Metals) for code intelligence and refactoring",
+  "author": {
+    "name": "Onn Elboher",
+    "email": "onn.elboher@gmail.com"
+  },
+  "homepage": "https://github.com/onne/metals-lsp",
+  "repository": "https://github.com/onne/metals-lsp",
+  "license": "Apache-2.0",
+  "keywords": ["scala", "lsp", "language-server", "metals"],
+  "lspServers": "./.lsp.json"
+}
