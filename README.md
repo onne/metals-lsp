@@ -11,6 +11,10 @@ This plugin connects Claude Code to the Metals language server. You must install
 
 ### Requirements
 - A JDK (Java 17 or later)
+- A supported, importable build (sbt, Gradle, Maven, Mill, or Bazel). Metals
+  bootstraps its build server (Bloop) automatically on first open — you do not
+  install it yourself. Navigation and hover work via the presentation compiler
+  even before import; compile diagnostics require the build to be imported.
 
 ### Install Metals
 
@@ -45,6 +49,16 @@ metals --version
 Open any `.scala` file in a build-imported Scala project. Claude Code will start Metals automatically on first use — the initial import can take up to 90 seconds. After that, hover, go-to-definition, and find-references work on Scala symbols.
 
 If a call reports the server is still starting, wait a few seconds and retry — Metals is importing the build.
+
+## How it works
+
+Metals serves two kinds of intelligence:
+
+- **Presentation compiler** — hover, go-to-definition, find references, and
+  completion. These work per-file and do not require a connected build server.
+- **Build server (Bloop)** — project-wide compile diagnostics (type mismatches,
+  missing implicits, unused imports). These are produced on file **save** for the
+  module containing the file, and require the build to have been imported.
 
 ## More Information
 - [Metals website](https://scalameta.org/metals/)
